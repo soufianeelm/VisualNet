@@ -41,7 +41,6 @@ Cette instruction mène à la création d'un dossier "dist" contenant l'exécuta
 ### étape 4 
 
 Déplacer les fichiers "logo.png" ainsi que "test.txt" dans le dossier contenant l'exécutable.
-Se référer au fichier HOWTO.
 
 ## Usage
 
