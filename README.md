@@ -1,8 +1,8 @@
 
 # Projet de visualisateur des flux de trafic réseau.
 
-Dans le cadre de l'UE LU3IN033 de réseau, enseignée en 3ème année de licence d'informatique à la Sorbonne université, nous avons écrit en python, un programme permettant de visualiser un ou plusieurs flux de trafic réseau. 
-C'est algorithme prend en entrée un fichier texte, appelé trace, contenant les octets capturés sur un réseau Ethernet.
+Dans le cadre de l'UE LU3IN033 de réseau, enseignée en 3ème année de licence d'informatique à la Sorbonne université, nous avons développé en python, un programme permettant de visualiser un ou plusieurs flux de trafic réseau. 
+Cet application prend en entrée un fichier texte, appelé trace, contenant les octets capturés sur un réseau Ethernet.
 Des précisions sur le format du fichier en entré seront données par la suite.
 
 Pour réaliser l'interface graphique, nous avons utilisé le module tkinter directement disponible sur la librairie standard de python.
@@ -14,7 +14,7 @@ instructions pour installer notre programme sous les principaux systèmes d'expl
 
 ### étape 1 (Utilisateurs Linux)
 
-Vérifier que les librairies de dévevloppement sont installées
+Vérifier que les librairies de développement sont installées
 
 ```bash
 sudo apt-get install python3-dev
