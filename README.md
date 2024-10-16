@@ -1,50 +1,49 @@
 
-# Projet de visualisateur des flux de trafic réseau.
+# Network Traffic Flow Visualizer Project
 
-Dans le cadre de l'UE LU3IN033 de réseau, enseignée en 3ème année de licence d'informatique à la Sorbonne université, nous avons développé en python, un programme permettant de visualiser un ou plusieurs flux de trafic réseau. 
-Cet application prend en entrée un fichier texte, appelé trace, contenant les octets capturés sur un réseau Ethernet.
-Des précisions sur le format du fichier en entré seront données par la suite.
+As part of the LU3IN033 Networking course, taught in the 3rd year of the Computer Science degree at Sorbonne University, we developed a Python program that allows the visualization of one or more network traffic flows. 
+This application takes as input a text file, called a trace, containing the bytes captured on an Ethernet network.
+Details on the input file format will be provided later.
 
-Pour réaliser l'interface graphique, nous avons utilisé le module tkinter directement disponible sur la librairie standard de python.
-
+We used the tkinter module, which is part of Python’s standard library, to create the graphical interface.
 
 ## Installation
 
-instructions pour installer notre programme sous les principaux systèmes d'exploitation
+Instructions to install our program on major operating systems
 
-### étape 1 (Utilisateurs Linux)
+### Step 1 (Linux Users)
 
-Vérifier que les librairies de développement sont installées
+Ensure that development libraries are installed:
 
 ```bash
 sudo apt-get install python3-dev
 ```
 
-### étape 2 (utilisateurs Linux, Mac, Windows)
+### Step 2 (Linux, Mac, Windows Users)
 
-Utiliser le module [pip](https://pip.pypa.io/en/stable/) pour installer pyinstaller
+Use the [pip](https://pip.pypa.io/en/stable/) module to install pyinstaller: 
 
 ```bash
 pip3 install pyinstaller
 ```
 
-### étape 3 (utilisateurs Linux, Mac, Windows)
+### Step 3 (Linux, Mac, Windows Users)
 
-Naviguer jusqu'au dossier contenant le codesource puis
+Navigate to the folder containing the source code and run:
 
 ```bash
 pyinstaller codesource.py --onefile
 ```
 
-Cette instruction mène à la création d'un dossier "dist" contenant l'exécutable ainsi que d'autres fichiers nécessaires à son fonctionnement
+This command creates a "dist" folder containing the executable along with other necessary files for the program to run.
 
-### étape 4 
+### Step 4 
 
-Déplacer les fichiers "logo.png" ainsi que "test.txt" dans le dossier contenant l'exécutable.
+Move the "logo.png" and "test.txt" files into the folder containing the executable.
 
 ## Usage
 
-Après avoir suivi les instructions d'installation, se rendre sur le dossier "dist" et lancer l'éxecutable en double-cliquant sur le fichier, ou avec la commande
+After following the installation instructions, go to the "dist" folder and launch the executable by double-clicking the file, or by using the command:
 
 Windows :
 
@@ -52,55 +51,55 @@ Windows :
 start codesource.exe
 ```
 
-Le programme se lance et une interface graphique apparaît.
+The program will launch and a graphical interface will appear.
 
 ![alt text](https://github.com/soufianeelm/Reseau/blob/main/image_2022-12-09_230907208.png?raw=true)
 
-Pour lancer la visualisation d'une trace, glisser le fichier contenant la trace dans le dossier contenant l'exécutable du programme.
+To launch the visualization of a trace, drag the file containing the trace into the folder where the executable is located.
 
-Ensuite, entrer le nom du fichier dans le cadre prévu à cet effet (sans l'extension).
+Then, enter the name of the file (without the extension) in the input field.
 
-Une nouvelle fenêtre apparaît correspondant à la visualisation des flux réseaux capturés dans la trace.
+A new window will appear, showing the visualization of the network traffic flows captured in the trace.
 
 ![alt text](https://github.com/soufianeelm/Reseau/blob/main/image_2022-12-09_231532572.png?raw=true)
 
-Pour filtrer les recherches, le cadre d'entrée ainsi que le bouton de recherche situés sur le bas de la fenêtre sont prévus à cet effet.
+To filter the searches, use the input field and search button at the bottom of the window.
 
-Insérer le filtre souhaité puis cliquer sur le bouton "rechercher".
+Insert the desired filter, then click the "search" button.
 
-Pour annuler le filtrage, relancer la recherche avec un filtre vide.
+To cancel the filtering, run the search with an empty filter.
 
 ## Questions
 
-Ici la réponse à certaines questions éventuellement posées par l'utilisateur.
+Answers to some potential questions from users.
 
-### Pour le fichier en entrée, quel format est-il prit en charge par le programme ?
+### What format is supported for the input file?
 
-Le format prit en charge par le programme est
+The program supports the following format:
 
-- un fichier texte brute (.txt)
-- pour chaque trame, chaque ligne commence par une variable offset, représentée par 4 chiffres héxadécimaux, et est égale à l'adresse du premier octet présent sur la ligne.
-- pour chaque ligne, les octets sont séparés de l'offset et des caractères ascii en fin de ligne par 3 espaces.
-- les octets sont séparés par un seul espace entre eux.
-- les trames sont séparés par une ligne vide de caractères. 
+- A raw text file (.txt)
+- For each frame, each line begins with an offset variable, represented by 4 hexadecimal digits, which is equal to the address of the first byte on the line.
+- For each line, the bytes are separated from the offset and the ASCII characters at the end of the line by 3 spaces.
+- Bytes are separated by a single space between them.
+- Frames are separated by a blank line. 
      
-### Quels sont les filtres disponibles ?
+### What filters are available?
 
-Il y a 17 filtres au total.
+There are a total of 17 filters.
 
-Concernant les filtres sur adresse ip, ils sont de la forme : (ex : 0.0.0.0)
+For IP address filters, they follow this form (e.g., 0.0.0.0):
 
-- 0.0.0.0 (l'ip source ou l'ip dest peuvent être égales à 0.0.0.0) 
-- 0.0.0.0 and 1.1.1.1 (soit l'ip source = 0.0.0.0 et l'ip dest = 1.1.1.1, soit l'inverse)
-- ip.src == 0.0.0.0 (l'ip source doit être égale à 0.0.0.0)
-- ip.dst == 0.0.0.0 (l'ip dest doit être égale à 0.0.0.0)
-- ip.src == 0.0.0.0 and ip.dst == 1.1.1.1 (l'ip source doit être égale à 0.0.0.0 et l'ip destination doit être égale à 1.1.1.1)
+- 0.0.0.0 (the source IP or destination IP can be equal to 0.0.0.0)
+- 0.0.0.0 and 1.1.1.1 (either source IP = 0.0.0.0 and destination IP = 1.1.1.1, or vice versa)
+- ip.src == 0.0.0.0 (the source IP must be equal to 0.0.0.0)
+- ip.dst == 0.0.0.0 (the destination IP must be equal to 0.0.0.0)
+- ip.src == 0.0.0.0 and ip.dst == 1.1.1.1 (the source IP must be equal to 0.0.0.0 and the destination IP must be equal to 1.1.1.1)
 
-Concernant les filtres sur protocoles, seulement 2 filtre :
+For protocol filters, only 2 filters are available:
 
 - tcp
 - http
 
-Les filtres restants sont des combinaisons entre filtre sur adresse ip et filtre sur protocole :
+The remaining filters are combinations of IP address filters and protocol filters:
 
-- [filtre sur ip] and [filtre sur procotole]
+- [IP filter] and [protocol filter]
